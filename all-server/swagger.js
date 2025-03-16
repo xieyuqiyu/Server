@@ -14,7 +14,9 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT || 3009}`,
+        url: process.env.NODE_ENV === 'production' 
+          ? `http://192.168.1.100:${process.env.PORT || 3009}`
+          : `http://localhost:${process.env.PORT || 3009}`,
         description: process.env.NODE_ENV === 'production' ? '生产服务器' : '开发服务器'
       }
     ]
